@@ -1,3 +1,7 @@
+output "synapse_managed_private_endpoints_id" {
+  description = "Map of id values across all synapse_managed_private_endpoints, keyed the same as var.synapse_managed_private_endpoints"
+  value       = { for k, v in azurerm_synapse_managed_private_endpoint.synapse_managed_private_endpoints : k => v.id }
+}
 output "synapse_managed_private_endpoints_fully_qualified_domain_names" {
   description = "Map of fully_qualified_domain_names values across all synapse_managed_private_endpoints, keyed the same as var.synapse_managed_private_endpoints"
   value       = { for k, v in azurerm_synapse_managed_private_endpoint.synapse_managed_private_endpoints : k => v.fully_qualified_domain_names }
